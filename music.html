@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Play Trimmed Audio with Sound</title>
+  <style>
+
+  </style>
+</head>
+<body>
+  <h2>Tap anywhere to play 🎵</h2>
+
+  <script>
+    const startTime = 13;
+    const endTime = 42;
+
+    const audio = new Audio("music/hbd.mp3");
+    audio.muted = false;
+    audio.controls = false;
+
+    document.body.addEventListener("click", () => {
+      // Set audio position and play
+      audio.currentTime = startTime;
+      audio.play();
+
+      // Loop between 13s and 42s
+      audio.addEventListener("timeupdate", () => {
+        if (audio.currentTime >= endTime) {
+          audio.currentTime = startTime;
+          audio.play();
+        }
+      });
+
+      // Optional: remove the message once audio starts
+      document.body.innerHTML = "";
+    }, { once: true });
+  </script>
+</body>
+</html>

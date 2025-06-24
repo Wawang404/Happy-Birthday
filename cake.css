@@ -1,0 +1,184 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:300italic);
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  background: #ee9ca7;
+}
+
+#cake {
+  display: block;
+  position: relative;
+  margin: -10em auto 0 auto;
+}
+
+
+/* ============================================== Candle
+*/
+
+
+
+.velas {
+  background: #ffffff;
+  border-radius: 10px;
+  position: absolute;
+  top: 228px;
+  left: 50%;
+  margin-left: -2.4px;
+  margin-top: -8.33333333px;
+  width: 5px;
+  height: 35px;
+  transform: translateY(-300px);
+  backface-visibility: hidden;
+  animation: in 500ms 6s ease-out forwards;
+}
+.velas:after,
+.velas:before {
+  background: rgba(255, 0, 0, 0.4);
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 2.22222222px;
+}
+.velas:after {
+  top: 25%;
+  left: 0;
+}
+.velas:before {
+  top: 45%;
+  left: 0;
+}
+
+/* ============================================== Fire
+*/
+
+.fuego {
+  border-radius: 100%;
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  margin-left: -2.6px;
+  width: 6.66666667px;
+  height: 18px;
+}
+.fuego:nth-child(1) {
+  animation: fuego 2s 6.5s infinite;
+}
+.fuego:nth-child(2) {
+  animation: fuego 1.5s 6.5s infinite;
+}
+.fuego:nth-child(3) {
+  animation: fuego 1s 6.5s infinite;
+}
+.fuego:nth-child(4) {
+  animation: fuego 0.5s 6.5s infinite;
+}
+.fuego:nth-child(5) {
+  animation: fuego 0.2s 6.5s infinite;
+}
+
+/* ============================================== Animation Fire
+*/
+
+@keyframes fuego {
+  0%, 100% {
+    background: rgba(254, 248, 97, 0.5);
+    box-shadow: 0 0 40px 10px rgba(248, 233, 209, 0.2);
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    background: rgba(255, 50, 0, 0.1);
+    box-shadow: 0 0 40px 20px rgba(248, 233, 209, 0.2);
+    transform: translateY(-20px) scale(0);
+  }
+}
+
+@keyframes in {
+  to {
+    transform: translateY(0);
+  }
+}
+
+.text {
+  color: #8b6a60;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  font-style:italic;
+  text-align: center;
+  h1 {
+    font-size: 1.7em;
+  }
+  p{
+    font-size: 1.7em;
+    font-weight: 300;
+  }
+}  
+
+#friend-photo {
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.3));
+    position: relative;
+    z-index: 999;
+}
+/* Candle Adjustments */
+.velas {
+    transform: translateY(-700px); /* Start position adjusted for larger cake */
+    width: 7.5px; /* Original 5px * 1.5 */
+    height: 100px; /* Original 35px * 1.5 */
+    margin-left: -3.6px; /* Original -2.4px * 1.5 */
+}
+
+.velas {
+    top: 69%; /* Position at cake top */
+    left: 50%;
+    margin-left: -3.75px; /* Half of candle width */
+    margin-top: 0;
+    animation: in 500ms 6s ease-out forwards;
+}
+
+/* Adjust flame positioning */
+.fuego {
+    top: -25px; /* Position above candle */
+    margin-left: -3.75px;
+}
+
+.fuego {
+    width: 10px; /* Original 6.66px * 1.5 */
+    height: 27px; /* Original 18px * 1.5 */
+    margin-left: -3.9px; /* Original -2.6px * 1.5 */
+    top: -30px; /* Original -20px * 1.5 */
+}
+
+/* Photo Adjustments */
+#friend-photo {
+    width: 50px; /* 60px * 1.5 */
+    height: 50px;
+    top: 12%; /* Adjusted position for larger cake */
+    animation: 
+        photoFall 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55) 8s forwards,
+        float 3s ease-in-out 8.8s infinite;
+}
+
+
+
+#balloon-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
+  /* Add this animation delay to match photo timing */
+  .balloon {
+    animation-delay: 8.5s !important; /* Adjust based on your photo animation duration */
+  }
+
